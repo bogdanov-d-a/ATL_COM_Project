@@ -32,4 +32,12 @@ BOOST_AUTO_TEST_CASE(TestSuccess)
 	BOOST_CHECK_EQUAL(result, 0.0);
 }
 
+BOOST_AUTO_TEST_CASE(TestNegative)
+{
+	auto pComObject = CreateATLSimpleObject();
+
+	DOUBLE result;
+	BOOST_CHECK(pComObject->CalcSqrt(-1.0, &result) == E_INVALIDARG);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
