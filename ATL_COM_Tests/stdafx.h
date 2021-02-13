@@ -12,6 +12,9 @@
 
 // TODO: reference additional headers your program requires here
 
+#include <Windows.h>
+#include <atlcomcli.h>
+
 #define BOOST_TEST_MODULE ATL_COM_Tests
 #define BOOST_TEST_INCLUDED
 #pragma warning (disable: 4702)

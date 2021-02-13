@@ -10,7 +10,6 @@
 
 STDMETHODIMP CATLSimpleObject::CalcSqrt(DOUBLE arg, DOUBLE* pResult)
 {
-	// TODO: Add your implementation code here
-
+	*pResult = sqrt(arg);
 	return S_OK;
 }
