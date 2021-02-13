@@ -40,4 +40,11 @@ BOOST_AUTO_TEST_CASE(TestNegative)
 	BOOST_CHECK(pComObject->CalcSqrt(-1.0, &result) == E_INVALIDARG);
 }
 
+BOOST_AUTO_TEST_CASE(TestNullptr)
+{
+	auto pComObject = CreateATLSimpleObject();
+
+	BOOST_CHECK(pComObject->CalcSqrt(42.0, nullptr) == E_POINTER);
+}
+
 BOOST_AUTO_TEST_SUITE_END()

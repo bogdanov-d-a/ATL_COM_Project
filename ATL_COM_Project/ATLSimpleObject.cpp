@@ -10,6 +10,11 @@
 
 STDMETHODIMP CATLSimpleObject::CalcSqrt(DOUBLE arg, DOUBLE* pResult)
 {
+	if (!pResult)
+	{
+		return E_POINTER;
+	}
+
 	if (arg < 0)
 	{
 		return E_INVALIDARG;
