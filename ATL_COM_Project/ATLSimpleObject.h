@@ -53,6 +53,7 @@ public:
 
 
 
+	STDMETHOD(CalcSqrt)(DOUBLE arg, DOUBLE* pResult);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(ATLSimpleObject), CATLSimpleObject)

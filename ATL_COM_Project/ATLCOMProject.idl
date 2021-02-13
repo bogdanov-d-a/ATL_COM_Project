@@ -16,6 +16,7 @@ import "ocidl.idl";
 ]
 interface IATLSimpleObject : IDispatch
 {
+	[id(1)] HRESULT CalcSqrt([in] DOUBLE arg, [out, retval] DOUBLE* pResult);
 };
 [
 	uuid(d989bf29-b6fb-4352-b84c-a41f23a0f1b9),
