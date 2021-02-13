@@ -8,11 +8,29 @@ import "oaidl.idl";
 import "ocidl.idl";
 
 [
+	object,
+	uuid(635c3382-2ec7-430f-8350-179eb5492629),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IATLSimpleObject : IDispatch
+{
+};
+[
 	uuid(d989bf29-b6fb-4352-b84c-a41f23a0f1b9),
 	version(1.0),
 ]
 library ATLCOMProjectLib
 {
 	importlib("stdole2.tlb");
+	[
+		uuid(e2500af2-5f94-4fd2-9cb6-e93735610cb0)
+	]
+	coclass ATLSimpleObject
+	{
+		[default] interface IATLSimpleObject;
+	};
 };
 
+import "shobjidl.idl";

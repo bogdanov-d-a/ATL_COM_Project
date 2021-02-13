@@ -215,6 +215,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ATLCOMProject_i.h" />
+    <ClInclude Include="ATLSimpleObject.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
@@ -236,6 +237,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ATLSimpleObject.cpp" />
     <ClCompile Include="ATL_COM_Project.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
@@ -262,6 +264,7 @@
     <ResourceCompile Include="ATL_COM_Project.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ATLSimpleObject.rgs" />
     <None Include="ATL_COM_Project.def" />
     <None Include="ATL_COM_Project.rgs" />
   </ItemGroup>
