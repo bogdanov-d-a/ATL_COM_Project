@@ -148,6 +148,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CoCreateInstanceHelper.h" />
     <ClInclude Include="ComInitializer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

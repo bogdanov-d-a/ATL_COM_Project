@@ -3,17 +3,24 @@
 
 #include "stdafx.h"
 #include "ComInitializer.h"
+#include "CoCreateInstanceHelper.h"
 #include "../ATL_COM_Project/ATLCOMProject_i.h"
+
+namespace
+{
+
+auto CreateATLSimpleObject()
+{
+	return CoCreateInstanceHelper<IATLSimpleObject>(__uuidof(ATLSimpleObject));
+}
+
+}
 
 BOOST_FIXTURE_TEST_SUITE(Com, CComInitializer)
 
 BOOST_AUTO_TEST_CASE(TestSuccess)
 {
-	CComPtr<IATLSimpleObject> pComObject;
-	if (FAILED(pComObject.CoCreateInstance(__uuidof(ATLSimpleObject))))
-	{
-		throw std::runtime_error("Com Object creation failed");
-	}
+	auto pComObject = CreateATLSimpleObject();
 
 	// Check positive argument
 	DOUBLE result;
