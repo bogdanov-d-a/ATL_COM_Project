@@ -22,22 +22,28 @@ BOOST_AUTO_TEST_CASE(TestSuccess)
 {
 	auto pComObject = CreateATLSimpleObject();
 
-	// Check positive argument
-	DOUBLE result;
-	BOOST_CHECK(SUCCEEDED(pComObject->CalcSqrt(100.0, &result)));
-	BOOST_CHECK_CLOSE(result, sqrt(100.0), 1e-10);
+	{
+		// Check positive argument
+		DOUBLE result = 0.0;
+		BOOST_CHECK(SUCCEEDED(pComObject->CalcSqrt(100.0, &result)));
+		BOOST_CHECK_CLOSE(result, sqrt(100.0), 1e-10);
+	}
 
-	// Check zero argument
-	BOOST_CHECK(SUCCEEDED(pComObject->CalcSqrt(0.0, &result)));
-	BOOST_CHECK_EQUAL(result, 0.0);
+	{
+		// Check zero argument
+		DOUBLE result = -1.0;
+		BOOST_CHECK(SUCCEEDED(pComObject->CalcSqrt(0.0, &result)));
+		BOOST_CHECK_EQUAL(result, 0.0);
+	}
 }
 
 BOOST_AUTO_TEST_CASE(TestNegative)
 {
 	auto pComObject = CreateATLSimpleObject();
 
-	DOUBLE result;
+	DOUBLE result = -42.0;
 	BOOST_CHECK(pComObject->CalcSqrt(-1.0, &result) == E_INVALIDARG);
+	BOOST_CHECK_EQUAL(result, -42.0);
 }
 
 BOOST_AUTO_TEST_CASE(TestNullptr)
