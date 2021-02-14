@@ -53,4 +53,26 @@ BOOST_AUTO_TEST_CASE(TestNullptr)
 	BOOST_CHECK(pComObject->CalcSqrt(42.0, nullptr) == E_POINTER);
 }
 
+BOOST_AUTO_TEST_CASE(TestLegacy)
+{
+	IATLSimpleObject *pComObject = NULL;
+
+	BOOST_REQUIRE(SUCCEEDED(CoCreateInstance(
+		__uuidof(ATLSimpleObject),
+		NULL,
+		CLSCTX_INPROC_SERVER,
+		__uuidof(IATLSimpleObject),
+		(LPVOID*)&pComObject)));
+
+	BOOST_SCOPE_EXIT_ALL(&)
+	{
+		pComObject->Release();
+		pComObject = NULL;
+	};
+
+	DOUBLE result = 0.0;
+	BOOST_CHECK(SUCCEEDED(pComObject->CalcSqrt(100.0, &result)));
+	BOOST_CHECK_CLOSE(result, sqrt(100.0), 1e-10);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
